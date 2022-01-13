@@ -1,0 +1,33 @@
+{
+  "name": "wonder-queue-system",
+  "version": "1.0.0",
+  "description": "A simple queuing system",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/server.js",
+    "dev": "ts-node-dev ./server.ts --watch *.ts",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajdurancr/wonder-queue-system.git"
+  },
+  "author": "Antony Durán",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajdurancr/wonder-queue-system/issues"
+  },
+  "homepage": "https://github.com/ajdurancr/wonder-queue-system#readme",
+  "engines": {
+    "node": ">=16.13.0"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.8",
+    "ts-jest": "^27.1.2",
+    "ts-node-dev": "^1.1.8"
+  }
+}
