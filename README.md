@@ -42,9 +42,18 @@ npm install
 npm start
 ```
 
+### Configuration
+In order for you to configure the queuing system, you can use the following environment variables:
+- `TIMEOUT_IN_MS`: Timeout in milliseconds that a given message will be in consumed status. After this time, the message will be re-inserted into the queue so it becomes available to any consumer requesting again. Default value: `300000` (*5 minutes*).
+- `PORT`: The port our server will be listening to. Default value: `8080`.
+
+You can use the `.env` file to add your environment variables in development. Please also see the `.env.example` file for reference.
+
 ### File Structure
 ```
 /
+├── .env
+├── .env.example
 ├── .gitignore
 ├── .nvmrc
 ├── jest.config.ts
@@ -129,13 +138,13 @@ curl -X 'GET' \
   {
     "id": "5169aa17-b9fc-4d23-8100-2f5e4836f61d",
     "createdAt": "2022-01-13T05:13:57.732Z",
-    // note that the message was already consumed but it was not marked as read (processed)
     "lastConsumedAt": "2022-01-13T05:23:46.783Z",
     "payload": "this is a test message"
   }
 ]
 ```
 
+> Please note that the message was assigned a value for the `lastConsumedAt` property since it was already consumed but it was not marked as read (processed) within the configured amount of time.
 
 #### Marking a message as read (processed)
 As a consumer, you will also be able to mark a message as read:

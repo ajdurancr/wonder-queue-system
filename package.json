@@ -4,8 +4,9 @@
   "description": "A simple queuing system",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/server.js",
-    "dev": "ts-node-dev ./server.ts --watch *.ts",
+    "prestart": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev -r dotenv/config ./server.ts --watch *.ts",
     "test": "jest"
   },
   "repository": {
@@ -22,6 +23,7 @@
     "node": ">=16.13.0"
   },
   "dependencies": {
+    "dotenv": "^11.0.0",
     "fastify": "^3.25.3",
     "fastify-swagger": "^4.13.1",
     "typescript": "^4.5.4",

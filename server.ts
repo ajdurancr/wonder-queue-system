@@ -6,10 +6,9 @@ import { WonderQueue } from './wonder-queue'
 import pkgJson from './package.json'
 
 const PORT = process.env.PORT || 8080
+const TIMEOUT_IN_MS = process.env.TIMEOUT_IN_MS || 0
 
-const wonderQ = new WonderQueue({
-  timeoutInMs: 1000 * 15, // 15 seconds
-})
+const wonderQ = new WonderQueue({ timeoutInMs: Number(TIMEOUT_IN_MS) })
 
 
 interface GetMessageQuerystring {
@@ -207,7 +206,7 @@ server.post<{
 });
 
  // Start your server
- server.listen(8080, (err, address) => {
+ server.listen(PORT, (err, address) => {
    if (err) {
      console.error(err);
      process.exit(1);
